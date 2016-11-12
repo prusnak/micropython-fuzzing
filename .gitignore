@@ -1,0 +1,4 @@
+afl-fuzz/
+afl-tests
+micropython/
+afltest.mpy
