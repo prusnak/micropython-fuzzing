@@ -1,12 +1,6 @@
 all:
 	@echo
-	@echo 'Use the following sequence:'
-	@echo
-	@echo '  make clone    -  clone micropython repository'
-	@echo '  make build    -  build micropython unix port with afl instrumentation and mpy-cross'
-	@echo '  make prepare  -  pre-compile tests using mpy-cross'
-	@echo '  make params   -  set optimal kernel parameters for testing (this one has to be run as root!)'
-	@echo '  make fuzz     -  run american fuzzy lop'
+	@cat README.md
 
 clone:
 	git clone --recursive https://github.com/micropython/micropython.git
