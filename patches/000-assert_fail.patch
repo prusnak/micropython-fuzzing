@@ -1,0 +1,11 @@
+--- micropython/unix/main.c
++++ micropython/unix/main.c
+@@ -618,3 +618,8 @@ void nlr_jump_fail(void *val) {
+     printf("FATAL: uncaught NLR %p\n", val);
+     exit(1);
+ }
++
++void __assert_fail(const char *assertion, const char *file, unsigned int line, const char *function)
++{
++    exit(1);
++}

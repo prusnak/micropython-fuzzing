@@ -5,6 +5,9 @@ all:
 clone:
 	git clone --recursive https://github.com/micropython/micropython.git
 
+patch:
+	for p in patches/*.patch; do patch -p0 < $$p ; done
+
 build:
 	make -C micropython/mpy-cross
 	make -C micropython/unix axtls
