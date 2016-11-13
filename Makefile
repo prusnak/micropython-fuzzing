@@ -8,7 +8,7 @@ clone:
 build:
 	make -C micropython/mpy-cross
 	make -C micropython/unix axtls
-	make -C micropython/unix CC=afl-gcc
+	make -C micropython/unix CC=afl-gcc DEBUG=1
 
 prepare:
 	find micropython/tests/basics -name '*.py' -exec micropython/mpy-cross/mpy-cross -mcache-lookup-bc {} \;
@@ -24,4 +24,6 @@ fuzz:
 	afl-fuzz -i ./afl-tests/ -o ./afl-fuzz/ -f afltest.mpy micropython/unix/micropython -c 'import afltest'
 
 clean:
+	make -C micropython/mpy-cross clean
+	make -C micropython/unix clean
 	rm -rf ./afltest.mpy ./afl-fuzz/ ./afl-tests/
